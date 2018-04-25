@@ -20,6 +20,7 @@ from flask import Flask, request, render_template
 
 reload(sys)
 sys.setdefaultencoding("UTF-8")
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../'))
 
 
 @app.route('/')
