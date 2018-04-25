@@ -7,5 +7,5 @@ from flask import Flask
 app = Flask(__name__)   # 实例化flask对象
 
 
-
+from app.siciyuan import views
 
