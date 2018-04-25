@@ -1,0 +1,17 @@
+$def with (toUser,fromUser,createTime,infolist,titlelist)
+<xml>
+    <ToUserName><![CDATA[$toUser]]></ToUserName>
+    <FromUserName><![CDATA[$fromUser]]></FromUserName>
+    <CreateTime>$createTime</CreateTime>
+    <MsgType><![CDATA[news]]></MsgType>
+    <ArticleCount>$len(infolist)</ArticleCount>
+    <Articles>
+        $for num in infolist:
+            <item>
+                <Title><![CDATA[$infolist[num][titlelist[0]]]]></Title> 
+                <Description><![CDATA[$infolist[num][titlelist[1]]]]></Description>
+                <PicUrl><![CDATA[$infolist[num][titlelist[2]]]]></PicUrl>
+                <Url><![CDATA[$infolist[num][titlelist[3]]]]></Url>
+            </item>
+    </Articles>
+</xml> 
