@@ -14,7 +14,7 @@ import re
 import traceback
 import json
 from config.CustomReply import CustomReplyDict
-from app import app
+from app import app, logger
 from lxml import etree
 from flask import Flask, request, render_template
 
@@ -304,6 +304,7 @@ def weixinInterface():
 
     # 如果是来自微信的请求，则回复echostr
     if hashcode == signature:
+        logger.info('{} == {} >> {}'.format(hashcode, signature, hashcode == signature))
         return echostr
 
 
