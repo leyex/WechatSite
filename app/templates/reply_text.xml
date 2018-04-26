@@ -1,9 +1,8 @@
-$def with (toUser,fromUser,createTime,content)
 <xml>
-<ToUserName><![CDATA[$toUser]]></ToUserName>
-<FromUserName><![CDATA[$fromUser]]></FromUserName>
-<CreateTime>$createTime</CreateTime>
+<ToUserName><![CDATA[{{ toUser }}]]></ToUserName>
+<FromUserName><![CDATA[{{ fromUser }}]]></FromUserName>
+<CreateTime>{{ createTime }}</CreateTime>
 <MsgType><![CDATA[text]]></MsgType>
-<Content>$content</Content>
+<Content>{{ content }}</Content>
 <FuncFlag>0</FuncFlag>
 </xml>
