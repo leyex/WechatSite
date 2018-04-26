@@ -20,7 +20,7 @@ from flask import Flask, request, render_template
 reload(sys)
 sys.setdefaultencoding("UTF-8")
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../'))
-from app import app, logger
+from app import app
 
 
 @app.route('/')
@@ -303,7 +303,7 @@ def weixinInterface():
     # sha1加密算法
     hashcode = sha1.hexdigest()
 
-    logger.info('{} == {} >> {}'.format(hashcode, signature, hashcode == signature))
+    app.logger.info('{} == {} >> {}'.format(hashcode, signature, hashcode == signature))
     # 如果是来自微信的请求，则回复echostr
     if hashcode == signature:
         return echostr
