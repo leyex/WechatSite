@@ -14,13 +14,13 @@ import re
 import traceback
 import json
 from config.CustomReply import CustomReplyDict
-from app import app, logger
 from lxml import etree
 from flask import Flask, request, render_template
 
 reload(sys)
 sys.setdefaultencoding("UTF-8")
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../'))
+from app import app, logger
 
 
 @app.route('/')
@@ -47,8 +47,8 @@ def weixinInterface():
         num_mark = False
 
         # 鹦鹉学舌
-        return render_template("reply_text.xml", fromUser=toUser, toUser=fromUser, createTime=int(time.time()),
-                               content=u"抱歉，功能正在开发中，您刚才所说的是：【%s】 \n感谢您的支持，谢谢！" % content)
+        # return render_template("reply_text.xml", fromUser=toUser, toUser=fromUser, createTime=int(time.time()),
+        #                        content=u"抱歉，功能正在开发中，您刚才所说的是：【%s】 \n感谢您的支持，谢谢！" % content)
 
         helplist = [u"来咯，客官，小四这厢有礼了", \
                     u"轻轻地，我来了，然后我又轻轻的走了，哈哈" \
@@ -303,9 +303,9 @@ def weixinInterface():
     # sha1加密算法
     hashcode = sha1.hexdigest()
 
+    logger.info('{} == {} >> {}'.format(hashcode, signature, hashcode == signature))
     # 如果是来自微信的请求，则回复echostr
     if hashcode == signature:
-        logger.info('{} == {} >> {}'.format(hashcode, signature, hashcode == signature))
         return echostr
 
 
