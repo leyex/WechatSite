@@ -415,7 +415,7 @@ def xiaohuangji(word):
 # 图灵机器人
 def tuling(word, openid=""):
     url = "http://openapi.tuling123.com/openapi/api/v2"
-    apiKey = "904e87c51e5f43ee9f09de692563f1f7"
+    apiKey = ""
     post_data = {
         "perception": {
             "inputText": {
@@ -480,7 +480,7 @@ def getNews(category):
 # 有道翻译API
 def youdao(word):
     qword = urllib2.quote(word)
-    url = "http://fanyi.youdao.com/openapi.do?keyfrom=Pythonpush&key=1098322410&type=data&doctype=json&version=1.1&q=%s" % qword
+    url = "http://fanyi.youdao.com/openapi.do?keyfrom=&key=&type=data&doctype=json&version=1.1&q=%s" % qword
     page = urllib2.urlopen(url)
     html = page.read()
     page.close()
